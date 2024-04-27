@@ -4,10 +4,8 @@ import com.clearsolutions.util.TimeUtils;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.ValidationException;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -20,7 +18,6 @@ public class GlobalExceptionHandler {
     private final Map<Class<? extends Exception>, HttpStatus> exceptions = Map.of(
             EntityNotFoundException.class, HttpStatus.NOT_FOUND,
             ConstraintViolationException.class, HttpStatus.BAD_REQUEST,
-            DataIntegrityViolationException.class, HttpStatus.BAD_REQUEST,
             ValidationException.class, HttpStatus.BAD_REQUEST
     );
 

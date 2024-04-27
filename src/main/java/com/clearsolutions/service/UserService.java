@@ -1,11 +1,10 @@
 package com.clearsolutions.service;
 
+import com.clearsolutions.dto.SearchDto;
+import com.clearsolutions.dto.UserPatchDto;
 import com.clearsolutions.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
-import java.util.Date;
-import java.util.Map;
 
 public interface UserService {
 
@@ -17,10 +16,8 @@ public interface UserService {
 
     void delete(Long id);
 
-    User patch(Long id, Map<String, Object> attributes);
+    User patch(Long id, UserPatchDto patchDto);
 
-    Page<User> searchBetweenDateOfBirth(Date from, Date to, Pageable pageable);
-
-    Page<User> searchBetweenAges(Integer from, Integer to, Pageable pageable);
+    Page<User> search(SearchDto searchDto, Pageable pageable);
 
 }
